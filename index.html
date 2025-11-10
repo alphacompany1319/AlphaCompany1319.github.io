@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Company | Honoring India's Legendary Warriors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-bg': '#0b0f0d',
+                        'accent1': '#1e3a2d',
+                        'accent2': '#facc15',
+                        'accent3': '#ff6b35',
+                        'sword': '#0A1172',
+                        'text-color': '#f3f4f6',
+                        'danger': '#dc2626',
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'rajdhani': ['Rajdhani', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+                        'text-glow': 'text-glow 1.5s ease-in-out infinite alternate',
+                        'scan': 'scan 3s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'flicker': 'flicker 3s linear infinite',
+                    },
+                    keyframes: {
+                        'pulse-glow': {
+                            '0%': { boxShadow: '0 0 5px rgba(250, 204, 21, 0.5)' },
+                            '100%': { boxShadow: '0 0 20px rgba(250, 204, 21, 0.8), 0 0 30px rgba(250, 204, 21, 0.6)' }
+                        },
+                        'text-glow': {
+                            '0%': { textShadow: '0 0 5px rgba(250, 204, 21, 0.5)' },
+                            '100%': { textShadow: '0 0 10px rgba(250, 204, 21, 0.8), 0 0 20px rgba(250, 204, 21, 0.6)' }
+                        },
+                        'scan': {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' }
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        'flicker': {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0.7 }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom CSS for effects not covered by Tailwind */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .metallic-text {
+            background: linear-gradient(to bottom, #c9c9c9, #555, #c9c9c9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0px 1px 1px rgba(255,255,255,0.8);
+        }
+        
+        .hud-line {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hud-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: scan 3s linear infinite;
+        }
+        
+        .soldier-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .soldier-card:hover {
+            transform: perspective(1000px) rotateY(5deg) rotateX(5deg) translateY(-10px);
+        }
+        
+        .glow-border {
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .glow-border:hover {
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.8), 0 0 30px rgba(250, 204, 21, 0.6);
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(250, 204, 21, 0.6);
+            pointer-events: none;
+        }
+        
+        .floating-spark {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: rgba(250, 204, 21, 0.8);
+            box-shadow: 0 0 10px 2px rgba(250, 204, 21, 0.6);
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 red;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: -1px 0 blue;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(42px, 9999px, 44px, 0); }
+            5% { clip: rect(12px, 9999px, 59px, 0); }
+            10% { clip: rect(48px, 9999px, 29px, 0); }
+            15% { clip: rect(42px, 9999px, 73px, 0); }
+            20% { clip: rect(63px, 9999px, 27px, 0); }
+            25% { clip: rect(34px, 9999px, 55px, 0); }
+            30% { clip: rect(86px, 9999px, 73px, 0); }
+            35% { clip: rect(20px, 9999px, 20px, 0); }
+            40% { clip: rect(26px, 9999px, 60px, 0); }
+            45% { clip: rect(25px, 9999px, 66px, 0); }
+            50% { clip: rect(57px, 9999px, 98px, 0); }
+            55% { clip: rect(5px, 9999px, 46px, 0); }
+            60% { clip: rect(82px, 9999px, 31px, 0); }
+            65% { clip: rect(54px, 9999px, 27px, 0); }
+            70% { clip: rect(28px, 9999px, 99px, 0); }
+            75% { clip: rect(45px, 9999px, 69px, 0); }
+            80% { clip: rect(23px, 9999px, 85px, 0); }
+            85% { clip: rect(54px, 9999px, 84px, 0); }
+            90% { clip: rect(45px, 9999px, 47px, 0); }
+            95% { clip: rect(37px, 9999px, 20px, 0); }
+            100% { clip: rect(4px, 9999px, 91px, 0); }
+        }
+        
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            5% { clip: rect(52px, 9999px, 74px, 0); }
+            10% { clip: rect(79px, 9999px, 85px, 0); }
+            15% { clip: rect(75px, 9999px, 5px, 0); }
+            20% { clip: rect(67px, 9999px, 61px, 0); }
+            25% { clip: rect(14px, 9999px, 79px, 0); }
+            30% { clip: rect(1px, 9999px, 66px, 0); }
+            35% { clip: rect(86px, 9999px, 30px, 0); }
+            40% { clip: rect(23px, 9999px, 98px, 0); }
+            45% { clip: rect(85px, 9999px, 72px, 0); }
+            50% { clip: rect(71px, 9999px, 75px, 0); }
+            55% { clip: rect(2px, 9999px, 48px, 0); }
+            60% { clip: rect(30px, 9999px, 16px, 0); }
+            65% { clip: rect(59px, 9999px, 50px, 0); }
+            70% { clip: rect(41px, 9999px, 62px, 0); }
+            75% { clip: rect(2px, 9999px, 82px, 0); }
+            80% { clip: rect(47px, 9999px, 73px, 0); }
+            85% { clip: rect(3px, 9999px, 27px, 0); }
+            90% { clip: rect(26px, 9999px, 55px, 0); }
+            95% { clip: rect(42px, 9999px, 97px, 0); }
+            100% { clip: rect(38px, 9999px, 49px, 0); }
+        }
+        
+        .rain-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+        
+        .rain-drop {
+            position: absolute;
+            width: 1px;
+            height: 30px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
+            animation: rain-fall linear infinite;
+        }
+        
+        @keyframes rain-fall {
+            0% { transform: translateY(-100px); }
+            100% { transform: translateY(calc(100vh + 100px)); }
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #facc15;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: #1e3a2d;
+            border: 4px solid #facc15;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid rgba(255, 255, 255, 0.1);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent rgba(255, 255, 255, 0.1);
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid rgba(255, 255, 255, 0.1);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
+        }
+
+        .right::after {
+            left: -13px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid rgba(255, 255, 255, 0.1);
+                border-width: 10px 10px 10px 0;
+                border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
+            }
+
+            .left::after, .right::after {
+                left: 18px;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+
+        /* Improved Mobile Menu Styles */
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: none;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-item {
+            position: relative;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: #facc15;
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .mobile-menu-item:hover .mobile-menu-icon {
+            transform: translateX(5px);
+        }
+
+        .mobile-menu-icon {
+            margin-right: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Mobile menu button animation */
+        .mobile-menu-button {
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-button.active {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body class="bg-primary-bg text-text-color font-rajdhani overflow-x-hidden">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-primary-bg z-50 flex flex-col items-center justify-center">
+        <div class="relative mb-8">
+            <div class="w-20 h-20 border-4 border-accent2 rounded-full animate-spin border-t-transparent"></div>
+            <div class="absolute inset-0 w-20 h-20 border-4 border-transparent rounded-full border-r-accent3 animate-ping"></div>
+        </div>
+        <h1 class="text-3xl font-orbitron metallic-text animate-pulse">ALPHA COMPANY</h1>
+        <p class="mt-2 text-sm animate-flicker">INITIALIZING SYSTEM...</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 glass py-4 px-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-orbitron font-bold metallic-text">ALPHA COMPANY</a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-accent2 transition-all duration-300 relative group">
+                    HOME
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent2 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#heroes" class="hover:text-accent2 transition-all duration-300 relative group">
+                    HEROES
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent2 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#timeline" class="hover:text-accent2 transition-all duration-300 relative group">
+                    TIMELINE
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent2 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#about" class="hover:text-accent2 transition-all duration-300 relative group">
+                    ABOUT
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent2 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#contact" class="hover:text-accent2 transition-all duration-300 relative group">
+                    CONTACT
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent2 group-hover:w-full transition-all duration-300"></span>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="mobile-menu-button md:hidden text-text-color">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden absolute top-full left-0 w-full py-4">
+            <div class="flex flex-col">
+                <a href="#home" class="mobile-menu-item">
+                    <div class="mobile-menu-icon">
+                        <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                    </div>
+                    HOME
+                </a>
+                <a href="#heroes" class="mobile-menu-item">
+                    <div class="mobile-menu-icon">
+                        <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                        </svg>
+                    </div>
+                    HEROES
+                </a>
+                <a href="#timeline" class="mobile-menu-item">
+                    <div class="mobile-menu-icon">
+                        <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    TIMELINE
+                </a>
+                <a href="#about" class="mobile-menu-item">
+                    <div class="mobile-menu-icon">
+                        <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    ABOUT
+                </a>
+                <a href="#contact" class="mobile-menu-item">
+                    <div class="mobile-menu-icon">
+                        <svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    CONTACT
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Rest of the HTML content remains the same -->
+    <!-- Homepage/Hero Section -->
+    <section id="home" class="min-h-screen relative flex items-center justify-center overflow-hidden">
+        <!-- Particle Background -->
+        <div id="particle-container" class="absolute inset-0 z-0"></div>
+        
+        <!-- Light Flares -->
+        <div class="absolute top-1/4 left-1/4 w-40 h-40 rounded-full bg-accent2 opacity-10 blur-xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-60 h-60 rounded-full bg-accent3 opacity-5 blur-2xl animate-pulse" style="animation-delay: 1s;"></div>
+        
+        <!-- Content -->
+        <div class="container mx-auto px-4 z-10 text-center">
+            <div class="hud-line mb-4">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-orbitron font-black uppercase metallic-text mb-4">
+                    ALPHA COMPANY
+                </h1>
+            </div>
+            <p class="text-xl md:text-2xl mb-8 font-light tracking-wider animate-text-glow">
+                Honoring India's Legendary Warriors
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6 mt-12">
+                <a href="#heroes" class="px-8 py-3 bg-accent1 border border-accent2 rounded-lg font-semibold text-text-color glow-border hover:bg-accent2 hover:text-primary-bg transition-all duration-300 transform hover:scale-105">
+                    EXPLORE HEROES
+                </a>
+                <a href="#timeline" class="px-8 py-3 glass border border-text-color/20 rounded-lg font-semibold text-text-color hover:bg-text-color/10 transition-all duration-300 transform hover:scale-105">
+                    MILITARY TIMELINE
+                </a>
+            </div>
+        </div>
+        
+        <!-- Crossed Swords Scroll Hint -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce flex justify-center">
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 32 32"
+       class="w-16 h-16 -ml-8">
+       
+    <!-- define gradient -->
+    <defs>
+      <linearGradient id="indiaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#FF9933" />  <!-- saffron / orange -->
+        <stop offset="50%" stop-color="#FFFFFF" /> <!-- white -->
+        <stop offset="100%" stop-color="#138808" /> <!-- green -->
+      </linearGradient>
+    </defs>
+
+    <!-- apply gradient to path -->
+    <path fill="url(#indiaGradient)" d="M8.542 18.277l-6.744 6.838c3.375 10.988 14.529 2.43 8.469-3.482-1.218-1.189-1.804-2.411-1.725-3.356zM8.253 21.312c0.608 0.441 1.094 0.897 1.475 1.358-1.814 0.229-5.071 2.719-5.758 4.523-0.287-0.439-0.548-0.958-0.774-1.565l5.057-4.316zM4.61 28.005c1.853-0.219 4.983-2.874 5.668-4.541 2.236 3.929-2.59 7.737-5.668 4.541zM12.34 18.966c-0.753 0.583-1.501 1.165-2.237 1.747l1.934 3.247c1.33-0.796 2.653-1.62 3.943-2.467 1.291 0.847 2.613 1.671 3.943 2.467l1.934-3.247c-0.736-0.581-1.484-1.163-2.237-1.747 7.426-5.474 12.796-11.71 10.65-17.828-2.22 5.24-8.105 10.184-14.291 15.008-6.186-4.824-12.071-9.768-14.291-15.008-2.146 6.118 3.224 12.354 10.65 17.828zM21.695 21.633c-6.059 5.912 5.094 14.47 8.469 3.482l-6.744-6.838c0.079 0.945-0.507 2.167-1.725 3.356zM21.684 23.464c0.685 1.666 3.815 4.322 5.668 4.541-3.078 3.197-7.904-0.612-5.668-4.541zM28.766 25.629c-0.226 0.607-0.488 1.126-0.774 1.565-0.686-1.804-3.944-4.294-5.758-4.523 0.381-0.461 0.867-0.918 1.475-1.358l5.057 4.316z"></path>
+  </svg>
+</div>
+
+
+    </section>
+
+    <!-- Soldiers Directory Section -->
+    <section id="heroes" class="py-20 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5 bg-repeat bg-center" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMCA1MEg1MFYxMDBINDBWNTBIMFY1MFpNNTAgMEg2MFY1MEg1MFYwWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');"></div>
+        
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold uppercase metallic-text mb-4">
+                    WARRIORS
+                </h2>
+                <div class="w-24 h-1 bg-accent2 mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-lg opacity-80">
+                    An archive of soldiers whose service reflects the legacy of India’s armed forces.
+                </p>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto mb-12">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search by name, rank, or regiment..." 
+                           class="w-full py-3 px-6 bg-primary-bg border border-accent1/50 rounded-lg focus:outline-none focus:border-accent2 focus:ring-2 focus:ring-accent2/30 transition-all duration-300 text-text-color">
+                    <div class="absolute right-3 top-1/2 transform -translate-y-1/2 text-text-color/60">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Soldier Cards Grid -->
+            <div id="soldiers-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Soldier cards will be dynamically generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Indian Military Timeline Section -->
+    <section id="timeline" class="py-20 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5 bg-repeat bg-center" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMCA1MEg1MFYxMDBINDBWNTBIMFY1MFpNNTAgMEg2MFY1MEg1MFYwWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');"></div>
+        
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold uppercase metallic-text mb-4">
+                    Indian Military History Timeline
+                </h2>
+                <div class="w-24 h-1 bg-accent2 mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-lg opacity-80">
+                    A journey through the pivotal moments that shaped India's military history and the brave souls who defended the nation.
+                </p>
+            </div>
+            
+            <div class="timeline">
+                <!-- Timeline items will be dynamically generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5 bg-repeat bg-center" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMCA1MEg1MFYxMDBINDBWNTBIMFY1MFpNNTAgMEg2MFY1MEg1MFYwWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');"></div>
+        
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold uppercase metallic-text mb-4">
+                    About This Memorial
+                </h2>
+                <div class="w-24 h-1 bg-accent2 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="glass rounded-xl p-8 mb-12">
+                    <h3 class="text-2xl font-orbitron font-bold mb-6 text-accent2">Our Mission</h3>
+                    <p class="text-lg mb-6">
+                        This digital memorial is dedicated to honoring the brave soldiers of India who have made the ultimate sacrifice for the nation. Our mission is to preserve their legacy and share their stories of valor with the world.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="glass rounded-xl p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-accent1 flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-accent2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-orbitron font-bold">Preservation</h3>
+                        </div>
+                        <p>We meticulously document and preserve the stories of India's war heroes, ensuring their sacrifices are never forgotten.</p>
+                    </div>
+                    
+                    <div class="glass rounded-xl p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-accent1 flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-accent2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-orbitron font-bold">Community</h3>
+                        </div>
+                        <p>We foster a community of remembrance where families, friends, and admirers can honor our heroes together.</p>
+                    </div>
+                </div>
+                
+                <div class="glass rounded-xl p-8">
+                    <h3 class="text-2xl font-orbitron font-bold mb-6 text-accent2">Our Commitment</h3>
+                    <p class="text-lg mb-6">
+                        We believe that remembering and celebrating these heroes is our duty as a grateful nation. Their stories are not just chapters in history books, but enduring lessons in patriotism, courage, and selflessness.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5 bg-repeat bg-center" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMCA1MEg1MFYxMDBINDBWNTBIMFY1MFpNNTAgMEg2MFY1MEg1MFYwWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');"></div>
+        
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold uppercase metallic-text mb-4">
+                    Contact
+                </h2>
+                <div class="w-24 h-1 bg-accent2 mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-lg opacity-80">
+                    Reach out to us if you notice any incorrect information, wish to suggest updates, or would like to share details of a soldier whose story should be included in this memorial.
+                </p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="glass rounded-xl p-8 text-center">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-orbitron font-bold mb-4 text-accent2">Connect With Us</h3>
+                        <p class="text-lg mb-6">
+                            We welcome feedback, suggestions, and contributions to help us improve this memorial and honor more heroes.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass rounded-lg p-6 hover:bg-accent1/30 transition-all duration-300">
+                            <div class="w-16 h-16 rounded-full bg-accent1 flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-accent2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-orbitron font-bold mb-2">Email</h4>
+                            <a href="mailto:alphacompany1319@proton.me" class="text-text-color/80 hover:text-accent2 transition-colors duration-300">
+                                alphacompany1319@proton.me
+                            </a>
+                        </div>
+                        
+                        <div class="glass rounded-lg p-6 hover:bg-accent1/30 transition-all duration-300">
+                            <div class="w-16 h-16 rounded-full bg-accent1 flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-accent2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-orbitron font-bold mb-2">Telegram</h4>
+                            <a href="https://t.me/AlphaCompany_1319?direct" target="_blank" class="text-text-color/80 hover:text-accent2 transition-colors duration-300">
+                                @AlphaCompany_1319
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-text-color/20">
+                        <p class="text-text-color/70">
+                            Your contributions help us preserve the legacy of India's brave soldiers for future generations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-[#0f2027] via-[#203a43] to-[#2c5364] py-12 relative overflow-hidden">
+        <!-- Floating Sparks -->
+        <div class="floating-spark" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-spark" style="top: 60%; left: 85%; animation-delay: 1s;"></div>
+        <div class="floating-spark" style="top: 80%; left: 30%; animation-delay: 2s;"></div>
+        <div class="floating-spark" style="top: 40%; left: 70%; animation-delay: 3s;"></div>
+        
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-6">
+                <h3 class="text-2xl font-orbitron font-bold metallic-text mb-2">ALPHA COMPANY</h3>
+                <p class="text-text-color/70 max-w-md mx-auto">A digital memorial honoring the courage and sacrifice of India's legendary soldiers.</p>
+            </div>
+            <div class="pt-6 border-t border-text-color/20">
+                <p class="text-text-color/80">
+                    Made by <a href="https://hridaym.com" class="text-accent2 hover:text-accent3 transition-colors duration-300 relative group">Hridaym</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Soldier Profile Modal -->
+    <div id="soldier-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-primary-bg opacity-90"></div>
+            </div>
+            
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            
+            <div id="modal-content" class="inline-block align-bottom bg-primary-bg rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full glass border border-accent2/30">
+                <!-- Modal content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Soldier data with extended details
+        const soldiers = [
+            {
+                id: 1,
+                name: "Capt. Vikram Batra",
+                rank: "Captain",
+                regiment: "13 JAK RIF",
+                tagline: "Param Vir Chakra Awardee",
+                image: "./images/1.jpg",
+                template: "a",
+                fullStory: "Captain Vikram Batra was an officer of the Indian Army, posthumously awarded the Param Vir Chakra, India's highest and most prestigious award for valour, for his actions during the 1999 Kargil War.",
+                backstory: "Born on 9 September 1974 in Palampur, Himachal Pradesh, Vikram Batra was commissioned into the Indian Military Academy in December 1997 and joined the 13th battalion of the Jammu and Kashmir Rifles. He quickly rose through the ranks with his dedication and leadership skills.",
+                operations: [
+                    {
+                        name: "Operation Vijay",
+                        date: "June 1999",
+                        description: "Led his company to capture Point 5140, a strategically important peak in the Dras sector. His famous words 'Yeh Dil Maange More!' became the slogan for the Indian Army's campaign."
+                    },
+                    {
+                        name: "Capture of Point 4875",
+                        date: "July 1999",
+                        description: "Successfully captured Point 4875 but was killed while rescuing an injured officer during the mission. His bravery and leadership inspired his entire unit."
+                    }
+                ],
+                awards: ["Param Vir Chakra", "Operation Vijay Medal"],
+                quotes: [
+                    "Either I will come back after hoisting the Tricolour, or I will come back wrapped in it, but I will be back for sure.",
+                    "Yeh Dil Maange More!"
+                ]
+            },
+            {
+                id: 2,
+                name: "Sub. Yogendra Singh Yadav",
+                rank: "Subedar",
+                regiment: "18 Grenadiers",
+                tagline: "Param Vir Chakra Awardee",
+                image: "./images/2.jpg",
+                template: "a",
+                fullStory: "Subedar Yogendra Singh Yadav is a retired Indian Army soldier, who was awarded the Param Vir Chakra for his bravery during the Kargil War. He is the youngest recipient of the award.",
+                backstory: "Born on 10 May 1980 in Aurangabad, Uttar Pradesh, Yadav joined the Indian Army at a young age. He was part of the 18 Grenadiers battalion during the Kargil War.",
+                operations: [
+                    {
+                        name: "Tiger Hill Assault",
+                        date: "July 1999",
+                        description: "Part of the commando platoon 'Ghatak' tasked to capture three strategic bunkers on Tiger Hill. Despite being severely injured, he continued fighting and neutralized enemy positions."
+                    }
+                ],
+                awards: ["Param Vir Chakra", "Operation Vijay Medal"],
+                quotes: [
+                    "I was just doing my duty. Every soldier in the Indian Army is ready to lay down his life for the nation."
+                ]
+            },
+            {
+                id: 3,
+                name: "Maj. Sandeep Unnikrishnan",
+                rank: "Major",
+                regiment: "7 Bihar",
+                tagline: "Ashoka Chakra Awardee",
+                image: "./images/3.jpg",
+                template: "a",
+                fullStory: "Major Sandeep Unnikrishnan was an Indian Army officer serving in the 7th Battalion of the Bihar Regiment who was martyred in action during the November 2008 Mumbai attacks.",
+                backstory: "Born on 15 March 1977 in Kozhikode, Kerala, Unnikrishnan was a National Defence Academy graduate who joined the Indian Army in 1999. He was part of the National Security Guards (NSG) during the Mumbai attacks.",
+                operations: [
+                    {
+                        name: "Operation Black Tornado",
+                        date: "November 2008",
+                        description: "Led the NSG commando team during the rescue operation at the Taj Mahal Palace Hotel in Mumbai. Sacrificed his life while saving his team members and hotel guests."
+                    }
+                ],
+                awards: ["Ashoka Chakra", "Service Medal"],
+                quotes: [
+                    "Do not come up, I will handle them.",
+                    "The uniform I wear is the Indian Army's. I will not take it off even if I'm killed."
+                ]
+            },
+            {
+                id: 4,
+                name: "Lt. Col. Dhan Singh Thapa",
+                rank: "Lieutenant Colonel",
+                regiment: "1/8 Gorkha Rifles",
+                tagline: "Param Vir Chakra Awardee",
+                image: "./images/4.jpg",
+                template: "b",
+                fullStory: "Lieutenant Colonel Dhan Singh Thapa was an officer in the Indian Army who was awarded the Param Vir Chakra for his bravery during the Sino-Indian War of 1962.",
+                backstory: "Born on 10 April 1928 in Shimla, Thapa was commissioned into the 1st battalion, 8 Gorkha Rifles in 1949. He displayed exceptional leadership during the 1962 war.",
+                operations: [
+                    {
+                        name: "Defense of Sirijap",
+                        date: "October 1962",
+                        description: "Commanded a company at Sirijap post near Pangong Lake. Despite being heavily outnumbered, his unit fought valiantly against Chinese forces for three days."
+                    }
+                ],
+                awards: ["Param Vir Chakra"],
+                quotes: []
+            },
+            {
+                id: 5,
+                name: "Capt. Manoj Kumar Pandey",
+                rank: "Captain",
+                regiment: "1/11 Gorkha Rifles",
+                tagline: "Param Vir Chakra Awardee",
+                image: "./images/5.jpg",
+                template: "b",
+                fullStory: "Captain Manoj Kumar Pandey was an officer of the Indian Army who was posthumously awarded the Param Vir Chakra for his exemplary courage during the Kargil War.",
+                backstory: "Born on 25 June 1975 in Sitapur, Uttar Pradesh, Pandey was commissioned into the 1st battalion, 11 Gorkha Rifles in 1997. He was known for his leadership and bravery.",
+                operations: [
+                    {
+                        name: "Operation Vijay",
+                        date: "July 1999",
+                        description: "Led his platoon in the capture of Khalubar ridge. Despite being severely injured, he continued to motivate his men and destroyed enemy positions before making the ultimate sacrifice."
+                    }
+                ],
+                awards: ["Param Vir Chakra", "Operation Vijay Medal"],
+                quotes: [
+                    "If death strikes before I prove my blood, I swear I'll kill death."
+                ]
+            },
+            {
+                id: 6,
+                name: "Hav. Abdul Hamid",
+                rank: "Havildar",
+                regiment: "4 Grenadiers",
+                tagline: "Param Vir Chakra Awardee",
+                image: "./images/6.jpg",
+                template: "b",
+                fullStory: "Company Quarter Master Havildar Abdul Hamid was a soldier in the Indian Army who was posthumously awarded the Param Vir Chakra for his actions during the Indo-Pakistani War of 1965.",
+                backstory: "Born on 1 July 1933 in Dhamupur village, Uttar Pradesh, Hamid joined the Indian Army in 1954. He served in the 4th battalion of The Grenadiers regiment.",
+                operations: [
+                    {
+                        name: "Battle of Asal Uttar",
+                        date: "September 1965",
+                        description: "Destroyed multiple Pakistani Patton tanks using a recoilless gun despite heavy enemy fire. His brave actions played a crucial role in India's victory in the battle."
+                    }
+                ],
+                awards: ["Param Vir Chakra"],
+                quotes: []
+            },
+            {
+                id: 7,
+                name: "Wg. Cdr. Rakesh Sharma",
+                rank: "Wing Commander",
+                regiment: "Indian Air Force",
+                tagline: "First Indian in Space",
+                image: "./images/7.jpg",
+                template: "a",
+                fullStory: "Wing Commander Rakesh Sharma is a former Indian Air Force pilot who flew aboard the Soyuz T-11, launched on 2 April 1984, as part of the Intercosmos program. He was the first Indian citizen to travel in space.",
+                backstory: "Born on 13 January 1949 in Patiala, Punjab, Sharma joined the Indian Air Force and progressed through the ranks. He was selected to become a cosmonaut and undergo training in the Soviet Union.",
+                operations: [
+                    {
+                        name: "Soyuz T-11 Mission",
+                        date: "April 1984",
+                        description: "Spent 7 days, 21 hours, and 40 minutes in space aboard the Salyut 7 space station. Conducted scientific and technical studies which included 43 experimental sessions."
+                    }
+                ],
+                awards: ["Ashoka Chakra", "Hero of Soviet Union", "Order of Lenin"],
+                quotes: [
+                    "The best view of India is from space – there is no border to be seen.",
+                    "I was proud to be an Indian, and I was proud to be representing India."
+                ]
+            },
+            {
+                id: 8,
+                name: "Gen. Bipin Rawat",
+                rank: "General",
+                regiment: "Indian Army",
+                tagline: "First Chief of Defence Staff",
+                image: "./images/8.jpg",
+                template: "a",
+                fullStory: "General Bipin Rawat was the first Chief of Defence Staff of India. He previously served as the 57th Chairman of the Chiefs of Staff Committee and the 27th Chief of the Army Staff.",
+                backstory: "Born on 16 March 1958 in Pauri, Uttarakhand, Rawat came from a military family with several generations having served in the Indian armed forces. He was commissioned into the 5th battalion of the 11 Gorkha Rifles in December 1978.",
+                operations: [
+                    {
+                        name: "2015 Indian counter-insurgency operation in Myanmar",
+                        date: "June 2015",
+                        description: "Planned and executed cross-border counter-insurgency operations targeting militant camps in Myanmar."
+                    },
+                    {
+                        name: "2016 Indian Line of Control strike",
+                        date: "September 2016",
+                        description: "Oversaw surgical strikes against militant launch pads across the Line of Control in Pakistan-administered Kashmir."
+                    }
+                ],
+                awards: ["Param Vishisht Seva Medal", "Uttam Yudh Seva Medal", "Ati Vishisht Seva Medal", "Vishisht Seva Medal", "Yudh Seva Medal", "Sena Medal"],
+                quotes: [
+                    "The Army is there to give a befitting reply to anyone who casts an evil eye on the country.",
+                    "We are ready to face any challenge, whether external or internal."
+                ]
+            }
+        ];
+
+        // Indian Military Timeline Data
+        const timelineData = [
+            {
+                year: "1746",
+                title: "Formation of British Indian Army",
+                description: "The British East India Company established its own military force, which later evolved into the British Indian Army, laying the foundation for organized armed forces in the subcontinent."
+            },
+            {
+                year: "1746-1763",
+                title: "Carnatic Wars",
+                description: "Series of three Anglo-French wars fought in South India for control over trade routes and territories; significantly shaped European dominance and the future Indian military landscape."
+            },
+            {
+                year: "1757",
+                title: "Battle of Plassey",
+                description: "British forces led by Robert Clive defeated Siraj-ud-Daula, marking the start of British colonial rule and large-scale military operations in India."
+            },
+            {
+                year: "1764",
+                title: "Battle of Buxar",
+                description: "A decisive British victory over combined Mughal and Awadh forces, further solidifying East India Company military control."
+            },
+            {
+                year: "1780-1799",
+                title: "Anglo-Mysore Wars",
+                description: "Series of four wars between the British and the Kingdom of Mysore, culminating in the death of Tipu Sultan and the rise of British military supremacy in southern India."
+            },
+            {
+                year: "1803-1818",
+                title: "Anglo-Maratha Wars",
+                description: "Three military campaigns leading to the defeat of Maratha Confederacy and near-total control of India by the British."
+            },
+            {
+                year: "1824-1826",
+                title: "First Anglo-Burmese War",
+                description: "The British Indian Army fought a major campaign in Burma, expanding colonial military operations into Southeast Asia."
+            },
+            {
+                year: "1857",
+                title: "First War of Independence / Sepoy Mutiny",
+                description: "Mass uprising by Indian soldiers against British rule, resulting in the reorganization of the military and the establishment of the British Crown's direct rule over India."
+            },
+            {
+                year: "1897",
+                title: "Battle of Saragarhi",
+                description: "21 Sikh soldiers held off thousands of Afghan attackers, becoming an enduring symbol of bravery and sacrifice in Indian military history."
+            },
+            {
+                year: "1914-1918",
+                title: "World War I",
+                description: "Over 1 million Indian soldiers served globally under the British, demonstrating international reach and significant wartime sacrifice with 74,000 deaths."
+            },
+            {
+                year: "1939-1945",
+                title: "World War II",
+                description: "Indian Army emerged as the largest volunteer force, 2.5 million strong, fighting in Asia, Africa, and Europe; laid groundwork for post-independence military capability."
+            },
+            {
+                year: "1947",
+                title: "Partition & First Indo-Pakistani War",
+                description: "The Indian military engaged Pakistan over Jammu and Kashmir immediately after independence, shaping boundary outcomes and operational doctrines."
+            },
+            {
+                year: "1948",
+                title: "Operation Polo",
+                description: "Indian military operation to integrate the princely state of Hyderabad into the Union of India, asserting sovereignty and regional control."
+            },
+            {
+                year: "1961",
+                title: "Operation Vijay",
+                description: "Liberation of Goa, Daman, and Diu from Portuguese rule by a coordinated military campaign; marked the end of colonial enclaves."
+            },
+            {
+                year: "1962",
+                title: "Sino-Indian War",
+                description: "Brief but intense conflict with China over disputed Himalayan borders; revealed weaknesses and led to modernization efforts in the Indian military."
+            },
+            {
+                year: "1965",
+                title: "Second Indo-Pakistani War",
+                description: "Armed confrontation with Pakistan across multiple fronts, including claimed victories in Punjab; helped refine the army’s operational logistics."
+            },
+            {
+                year: "1971",
+                title: "Third Indo-Pakistani War / Bangladesh Liberation",
+                description: "Indian military intervention led to creation of Bangladesh after swiftly defeating Pakistani forces on both eastern and western fronts."
+            },
+            {
+                year: "1984",
+                title: "Operation Blue Star",
+                description: "Indian Army carried out a controversial operation to remove militants from the Golden Temple in Amritsar, impacting civil-military relations and national security policy."
+            },
+            {
+                year: "1984",
+                title: "Operation Meghdoot",
+                description: "Indian Army established control over the Siachen Glacier in the world's highest battlefield, fundamentally altering Himalayan defense strategy."
+            },
+            {
+                year: "1987-1990",
+                title: "Operation Pawan",
+                description: "The Indian Peace Keeping Force (IPKF) intervened in Sri Lanka during the civil war, marking India's largest overseas counter-insurgency mission."
+            },
+            {
+                year: "1999",
+                title: "Kargil War / Operation Vijay",
+                description: "Indian Army repelled Pakistani intrusions in Kargil, Jammu & Kashmir, with tactical innovations in high-altitude warfare."
+            },
+            {
+                year: "2001",
+                title: "Operation Parakram",
+                description: "Massive troop mobilization to the India-Pakistan border following the December 2001 Parliament attack, demonstrating readiness for full-scale war."
+            },
+            {
+                year: "2003",
+                title: "Operation Sarp Vinash",
+                description: "Indian Army eliminated large-scale terror infrastructure in Jammu and Kashmir in one of its largest counter-insurgency operations."
+            },
+            {
+                year: "2008",
+                title: "Operation Black Tornado",
+                description: "Rapid National Security Guard and Army counter-terror operation during the Mumbai attacks, reshaping India's approach to urban anti-terror missions."
+            },
+            {
+                year: "2015",
+                title: "Myanmar Cross-Border Operation",
+                description: "Indian Army conducted cross-border strikes in Myanmar, targeting insurgent groups; demonstrated more assertive new doctrine for surgical actions."
+            },
+            {
+                year: "2016",
+                title: "Surgical Strikes",
+                description: "Indian Army carried out precise cross-LoC strikes in Pakistan-administered Kashmir in response to Uri terror attacks, signaling a new assertiveness."
+            },
+            {
+                year: "2019",
+                title: "Balakot Airstrike",
+                description: "Indian Air Force entered Pakistani airspace in retaliation for the Pulwama suicide bombing, marking a historic escalation to cross-border air operations."
+            },
+            {
+                year: "2020",
+                title: "Galwan Valley Clash",
+                description: "India-China military standoff in Ladakh led to casualties for the first time in decades, prompting troop mobilization and a new focus on mountain warfare."
+            },
+            {
+                year: "2021",
+                title: "Operation Devi Shakti",
+                description: "Indian forces evacuated citizens and allied nationals during the Afghanistan crisis, showcasing overseas operational capability."
+            },
+            {
+                year: "2022",
+                title: "Operation Ganga",
+                description: "Indian military and Air Force facilitated mass evacuations from Ukraine following the outbreak of the Russia-Ukraine war."
+            },
+            {
+                year: "2023-2025",
+                title: "Defence Modernization & Reforms",
+                description: "Major reforms included acquisition of Rafale jets, S-400 systems, indigenous missile upgrades (Agni, BrahMos), indigenous Tejas fighter jets, nuclear submarine INS Arihant, network-centric warfare, AI integration for intelligence, rising defense exports, and comprehensive border and cyber defense programs."
+            },
+            {
+                year: "2024-2025",
+                title: "Major Joint Military Exercises",
+                description: "India held large-scale joint exercises with the US (Yudh Abhyas), Russia (Indra), Nepal (Surya Kiran), and others, demonstrating enhanced military interoperability and global partnership."
+            },
+            {
+                year: "2025",
+                title: "Operation Sindoor",
+                description: "Indian Army conducted unprecedented cross-border counter-terror strikes in Pakistan/PoK after the Pahalgam attack. 9 major terror sites destroyed, showcasing technological advances and an evolved doctrine in 21st century warfare."
+            }
+        ];
+
+
+
+        // DOM Elements
+        const loadingScreen = document.getElementById('loading-screen');
+        const particleContainer = document.getElementById('particle-container');
+        const soldiersGrid = document.getElementById('soldiers-grid');
+        const searchInput = document.getElementById('search-input');
+        const soldierModal = document.getElementById('soldier-modal');
+        const modalContent = document.getElementById('modal-content');
+        const timelineContainer = document.querySelector('.timeline');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulate loading
+            setTimeout(() => {
+                loadingScreen.classList.add('opacity-0');
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 2000);
+
+            // Initialize particles
+            createParticles();
+            
+            // Initialize soldier cards
+            renderSoldierCards(soldiers);
+            
+            // Initialize timeline
+            renderTimeline();
+            
+            // Initialize search functionality
+            searchInput.addEventListener('input', handleSearch);
+            
+            // Initialize scroll animations
+            initScrollAnimations();
+            
+            // Initialize mobile menu
+            mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+        });
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('active');
+            mobileMenuButton.classList.toggle('active');
+        }
+
+        // Close mobile menu
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuButton.classList.remove('active');
+        }
+
+        // Create particle background
+        function createParticles() {
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 3 + 1;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 10;
+                const duration = Math.random() * 10 + 10;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animation = `float ${duration}s ease-in-out infinite`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.opacity = Math.random() * 0.6 + 0.2;
+                
+                particleContainer.appendChild(particle);
+            }
+        }
+
+        // Render soldier cards
+        function renderSoldierCards(soldiersArray) {
+            soldiersGrid.innerHTML = '';
+            
+            soldiersArray.forEach(soldier => {
+                const card = document.createElement('div');
+                card.classList.add('soldier-card', 'glass', 'rounded-lg', 'overflow-hidden', 'p-6', 'relative');
+                
+                card.innerHTML = `
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-accent2 glow-border">
+                            <img src="${soldier.image}" alt="${soldier.name}" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold mb-1">${soldier.name}</h3>
+                        <p class="text-accent2 mb-1">${soldier.rank}</p>
+                        <p class="text-text-color/70 text-sm mb-3">${soldier.regiment}</p>
+                        <p class="text-text-color/80 text-xs italic mb-4">${soldier.tagline}</p>
+                        <button onclick="openSoldierModal(${soldier.id})" class="px-4 py-2 bg-accent1 hover:bg-accent2 text-text-color rounded text-sm transition-all duration-300 transform hover:scale-105">
+                            View Profile
+                        </button>
+                    </div>
+                `;
+                
+                soldiersGrid.appendChild(card);
+            });
+        }
+
+        // Render timeline
+        function renderTimeline() {
+            timelineContainer.innerHTML = '';
+            
+            timelineData.forEach((event, index) => {
+                const timelineItem = document.createElement('div');
+                timelineItem.classList.add('timeline-item', index % 2 === 0 ? 'left' : 'right');
+                
+                timelineItem.innerHTML = `
+                    <div class="glass rounded-lg p-6">
+                        <div class="text-accent2 font-bold text-lg mb-2">${event.year}</div>
+                        <h3 class="text-xl font-orbitron font-bold mb-2">${event.title}</h3>
+                        <p class="text-text-color/80">${event.description}</p>
+                    </div>
+                `;
+                
+                timelineContainer.appendChild(timelineItem);
+            });
+        }
+
+        // Handle search functionality
+        function handleSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            if (searchTerm === '') {
+                renderSoldierCards(soldiers);
+                return;
+            }
+            
+            const filteredSoldiers = soldiers.filter(soldier => {
+                return soldier.name.toLowerCase().includes(searchTerm) ||
+                       soldier.rank.toLowerCase().includes(searchTerm) ||
+                       soldier.regiment.toLowerCase().includes(searchTerm) ||
+                       soldier.tagline.toLowerCase().includes(searchTerm);
+            });
+            
+            renderSoldierCards(filteredSoldiers);
+        }
+
+        // Initialize scroll animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements that should animate on scroll
+            document.querySelectorAll('.soldier-card').forEach(card => {
+                card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+                observer.observe(card);
+            });
+
+            // Observe timeline items
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.classList.add('opacity-0', 'transition-all', 'duration-700');
+                observer.observe(item);
+            });
+        }
+
+        // Open soldier modal with details
+        function openSoldierModal(soldierId) {
+            const soldier = soldiers.find(s => s.id === soldierId);
+            if (!soldier) return;
+            
+            // Render based on template type
+            let modalHTML = '';
+            
+            if (soldier.template === 'a') {
+                modalHTML = renderTemplateA(soldier);
+            } else if (soldier.template === 'b') {
+                modalHTML = renderTemplateB(soldier);
+            }
+            
+            modalContent.innerHTML = modalHTML;
+            soldierModal.classList.remove('hidden');
+            
+            // Add event listener to close modal
+            document.getElementById('close-modal').addEventListener('click', () => {
+                soldierModal.classList.add('hidden');
+            });
+            
+            // Close modal when clicking outside content
+            soldierModal.addEventListener('click', (e) => {
+                if (e.target === soldierModal) {
+                    soldierModal.classList.add('hidden');
+                }
+            });
+        }
+
+        // Template A: Detailed profile with multiple sections
+        function renderTemplateA(soldier) {
+            return `
+                <div class="relative">
+                    <div class="absolute top-4 right-4">
+                        <button id="close-modal" class="text-text-color/70 hover:text-text-color">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex flex-col md:flex-row items-start mb-8">
+                            <div class="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
+                                <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-accent2 glow-border">
+                                    <img src="${soldier.image}" alt="${soldier.name}" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="w-full md:w-2/3 md:pl-8">
+                                <h2 class="text-3xl font-orbitron font-bold mb-2">${soldier.name}</h2>
+                                <p class="text-xl text-accent2 mb-2">${soldier.rank} | ${soldier.regiment}</p>
+                                <p class="text-lg italic mb-4">${soldier.tagline}</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    ${soldier.awards.map(award => `
+                                        <span class="px-3 py-1 bg-accent1 text-text-color rounded-full text-sm">${award}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div class="glass rounded-lg p-6">
+                                <h3 class="text-xl font-orbitron font-bold mb-4 text-accent2">Full Story</h3>
+                                <p class="text-text-color/90">${soldier.fullStory}</p>
+                            </div>
+                            
+                            <div class="glass rounded-lg p-6">
+                                <h3 class="text-xl font-orbitron font-bold mb-4 text-accent2">Background</h3>
+                                <p class="text-text-color/90">${soldier.backstory}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="glass rounded-lg p-6 mb-8">
+                            <h3 class="text-xl font-orbitron font-bold mb-4 text-accent2">Key Operations</h3>
+                            <div class="space-y-4">
+                                ${soldier.operations.map(op => `
+                                    <div class="border-l-4 border-accent2 pl-4 py-2">
+                                        <h4 class="font-bold">${op.name} <span class="text-accent2 text-sm">(${op.date})</span></h4>
+                                        <p class="text-text-color/80">${op.description}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        ${soldier.quotes.length > 0 ? `
+                        <div class="glass rounded-lg p-6">
+                            <h3 class="text-xl font-orbitron font-bold mb-4 text-accent2">Memorable Quotes</h3>
+                            <div class="space-y-3">
+                                ${soldier.quotes.map(quote => `
+                                    <blockquote class="border-l-4 border-accent3 pl-4 py-1 italic text-text-color/90">"${quote}"</blockquote>
+                                `).join('')}
+                            </div>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Template B: Standard profile with essential details
+        function renderTemplateB(soldier) {
+            return `
+                <div class="relative">
+                    <div class="absolute top-4 right-4">
+                        <button id="close-modal" class="text-text-color/70 hover:text-text-color">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="text-center mb-8">
+                            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-accent2 glow-border mx-auto mb-4">
+                                <img src="${soldier.image}" alt="${soldier.name}" class="w-full h-full object-cover">
+                            </div>
+                            <h2 class="text-3xl font-orbitron font-bold mb-2">${soldier.name}</h2>
+                            <p class="text-xl text-accent2 mb-2">${soldier.rank} | ${soldier.regiment}</p>
+                            <p class="text-lg italic mb-4">${soldier.tagline}</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                ${soldier.awards.map(award => `
+                                    <span class="px-3 py-1 bg-accent1 text-text-color rounded-full text-sm">${award}</span>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="glass rounded-lg p-6 mb-8">
+                            <h3 class="text-xl font-orbitron font-bold mb-4 text-accent2">Story of Valor</h3>
+                            <p class="text-text-color/90 mb-4">${soldier.fullStory}</p>
+                            <p class="text-text-color/80">${soldier.backstory}</p>
+                        </div>
+                        
+                        ${soldier.operations.length > 0 ? `
+                        <div class="glass rounded-lg p-6">
+                            <h3 class="text-xl font-orbitron font-bold mb-4 text-accent2">Notable Operations</h3>
+                            <div class="space-y-3">
+                                ${soldier.operations.map(op => `
+                                    <div>
+                                        <h4 class="font-bold">${op.name} <span class="text-accent2 text-sm">(${op.date})</span></h4>
+                                        <p class="text-text-color/80 text-sm">${op.description}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
