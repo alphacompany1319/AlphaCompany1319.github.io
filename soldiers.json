@@ -1,0 +1,195 @@
+[
+    {
+        "id": 1,
+        "name": "Capt. Vikram Batra",
+        "rank": "Captain",
+        "regiment": "13 JAK RIF",
+        "tagline": "Param Vir Chakra Awardee",
+        "image": "./images/1.jpg",
+        "template": "a",
+        "fullStory": "Captain Vikram Batra was an officer of the Indian Army, posthumously awarded the Param Vir Chakra, India's highest and most prestigious award for valour, for his actions during the 1999 Kargil War.",
+        "backstory": "Born on 9 September 1974 in Palampur, Himachal Pradesh, Vikram Batra was commissioned into the Indian Military Academy in December 1997 and joined the 13th battalion of the Jammu and Kashmir Rifles. He quickly rose through the ranks with his dedication and leadership skills.",
+        "operations": [
+            {
+                "name": "Operation Vijay",
+                "date": "June 1999",
+                "description": "Led his company to capture Point 5140, a strategically important peak in the Dras sector. His famous words 'Yeh Dil Maange More!' became the slogan for the Indian Army's campaign."
+            },
+            {
+                "name": "Capture of Point 4875",
+                "date": "July 1999",
+                "description": "Successfully captured Point 4875 but was killed while rescuing an injured officer during the mission. His bravery and leadership inspired his entire unit."
+            }
+        ],
+        "awards": ["Param Vir Chakra", "Operation Vijay Medal"],
+        "quotes": [
+            "Either I will come back after hoisting the Tricolour, or I will come back wrapped in it, but I will be back for sure.",
+            "Yeh Dil Maange More!"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Sub. Yogendra Singh Yadav",
+        "rank": "Subedar",
+        "regiment": "18 Grenadiers",
+        "tagline": "Param Vir Chakra Awardee",
+        "image": "./images/2.jpg",
+        "template": "a",
+        "fullStory": "Subedar Yogendra Singh Yadav is a retired Indian Army soldier, who was awarded the Param Vir Chakra for his bravery during the Kargil War. He is the youngest recipient of the award.",
+        "backstory": "Born on 10 May 1980 in Aurangabad, Uttar Pradesh, Yadav joined the Indian Army at a young age. He was part of the 18 Grenadiers battalion during the Kargil War.",
+        "operations": [
+            {
+                "name": "Tiger Hill Assault",
+                "date": "July 1999",
+                "description": "Part of the commando platoon 'Ghatak' tasked to capture three strategic bunkers on Tiger Hill. Despite being severely injured, he continued fighting and neutralized enemy positions."
+            }
+        ],
+        "awards": ["Param Vir Chakra", "Operation Vijay Medal"],
+        "quotes": [
+            "I was just doing my duty. Every soldier in the Indian Army is ready to lay down his life for the nation."
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Maj. Sandeep Unnikrishnan",
+        "rank": "Major",
+        "regiment": "7 Bihar",
+        "tagline": "Ashoka Chakra Awardee",
+        "image": "./images/3.jpg",
+        "template": "a",
+        "fullStory": "Major Sandeep Unnikrishnan was an Indian Army officer serving in the 7th Battalion of the Bihar Regiment who was martyred in action during the November 2008 Mumbai attacks.",
+        "backstory": "Born on 15 March 1977 in Kozhikode, Kerala, Unnikrishnan was a National Defence Academy graduate who joined the Indian Army in 1999. He was part of the National Security Guards (NSG) during the Mumbai attacks.",
+        "operations": [
+            {
+                "name": "Operation Black Tornado",
+                "date": "November 2008",
+                "description": "Led the NSG commando team during the rescue operation at the Taj Mahal Palace Hotel in Mumbai. Sacrificed his life while saving his team members and hotel guests."
+            }
+        ],
+        "awards": ["Ashoka Chakra", "Service Medal"],
+        "quotes": [
+            "Do not come up, I will handle them.",
+            "The uniform I wear is the Indian Army's. I will not take it off even if I'm killed."
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Lt. Col. Dhan Singh Thapa",
+        "rank": "Lieutenant Colonel",
+        "regiment": "1/8 Gorkha Rifles",
+        "tagline": "Param Vir Chakra Awardee",
+        "image": "./images/4.jpg",
+        "template": "b",
+        "fullStory": "Lieutenant Colonel Dhan Singh Thapa was an officer in the Indian Army who was awarded the Param Vir Chakra for his bravery during the Sino-Indian War of 1962.",
+        "backstory": "Born on 10 April 1928 in Shimla, Thapa was commissioned into the 1st battalion, 8 Gorkha Rifles in 1949. He displayed exceptional leadership during the 1962 war.",
+        "operations": [
+            {
+                "name": "Defense of Sirijap",
+                "date": "October 1962",
+                "description": "Commanded a company at Sirijap post near Pangong Lake. Despite being heavily outnumbered, his unit fought valiantly against Chinese forces for three days."
+            }
+        ],
+        "awards": ["Param Vir Chakra"],
+        "quotes": []
+    },
+    {
+        "id": 5,
+        "name": "Capt. Manoj Kumar Pandey",
+        "rank": "Captain",
+        "regiment": "1/11 Gorkha Rifles",
+        "tagline": "Param Vir Chakra Awardee",
+        "image": "./images/5.jpg",
+        "template": "b",
+        "fullStory": "Captain Manoj Kumar Pandey was an officer of the Indian Army who was posthumously awarded the Param Vir Chakra for his exemplary courage during the Kargil War.",
+        "backstory": "Born on 25 June 1975 in Sitapur, Uttar Pradesh, Pandey was commissioned into the 1st battalion, 11 Gorkha Rifles in 1997. He was known for his leadership and bravery.",
+        "operations": [
+            {
+                "name": "Operation Vijay",
+                "date": "July 1999",
+                "description": "Led his platoon in the capture of Khalubar ridge. Despite being severely injured, he continued to motivate his men and destroyed enemy positions before making the ultimate sacrifice."
+            }
+        ],
+        "awards": ["Param Vir Chakra", "Operation Vijay Medal"],
+        "quotes": [
+            "If death strikes before I prove my blood, I swear I'll kill death."
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Hav. Abdul Hamid",
+        "rank": "Havildar",
+        "regiment": "4 Grenadiers",
+        "tagline": "Param Vir Chakra Awardee",
+        "image": "./images/6.jpg",
+        "template": "b",
+        "fullStory": "Company Quarter Master Havildar Abdul Hamid was a soldier in the Indian Army who was posthumously awarded the Param Vir Chakra for his actions during the Indo-Pakistani War of 1965.",
+        "backstory": "Born on 1 July 1933 in Dhamupur village, Uttar Pradesh, Hamid joined the Indian Army in 1954. He served in the 4th battalion of The Grenadiers regiment.",
+        "operations": [
+            {
+                "name": "Battle of Asal Uttar",
+                "date": "September 1965",
+                "description": "Destroyed multiple Pakistani Patton tanks using a recoilless gun despite heavy enemy fire. His brave actions played a crucial role in India's victory in the battle."
+            }
+        ],
+        "awards": ["Param Vir Chakra"],
+        "quotes": []
+    },
+    {
+        "id": 7,
+        "name": "Wg. Cdr. Rakesh Sharma",
+        "rank": "Wing Commander",
+        "regiment": "Indian Air Force",
+        "tagline": "First Indian in Space",
+        "image": "./images/7.jpg",
+        "template": "a",
+        "fullStory": "Wing Commander Rakesh Sharma is a former Indian Air Force pilot who flew aboard the Soyuz T-11, launched on 2 April 1984, as part of the Intercosmos program. He was the first Indian citizen to travel in space.",
+        "backstory": "Born on 13 January 1949 in Patiala, Punjab, Sharma joined the Indian Air Force and progressed through the ranks. He was selected to become a cosmonaut and undergo training in the Soviet Union.",
+        "operations": [
+            {
+                "name": "Soyuz T-11 Mission",
+                "date": "April 1984",
+                "description": "Spent 7 days, 21 hours, and 40 minutes in space aboard the Salyut 7 space station. Conducted scientific and technical studies which included 43 experimental sessions."
+            }
+        ],
+        "awards": ["Ashoka Chakra", "Hero of Soviet Union", "Order of Lenin"],
+        "quotes": [
+            "The best view of India is from space – there is no border to be seen.",
+            "I was proud to be an Indian, and I was proud to be representing India."
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Gen. Bipin Rawat",
+        "rank": "General",
+        "regiment": "Indian Army",
+        "tagline": "First Chief of Defence Staff",
+        "image": "./images/8.jpg",
+        "template": "a",
+        "fullStory": "General Bipin Rawat was the first Chief of Defence Staff of India. He previously served as the 57th Chairman of the Chiefs of Staff Committee and the 27th Chief of the Army Staff.",
+        "backstory": "Born on 16 March 1958 in Pauri, Uttarakhand, Rawat came from a military family with several generations having served in the Indian armed forces. He was commissioned into the 5th battalion of the 11 Gorkha Rifles in December 1978.",
+        "operations": [
+            {
+                "name": "2015 Indian counter-insurgency operation in Myanmar",
+                "date": "June 2015",
+                "description": "Planned and executed cross-border counter-insurgency operations targeting militant camps in Myanmar."
+            },
+            {
+                "name": "2016 Indian Line of Control strike",
+                "date": "September 2016",
+                "description": "Oversaw surgical strikes against militant launch pads across the Line of Control in Pakistan-administered Kashmir."
+            }
+        ],
+        "awards": [
+            "Param Vishisht Seva Medal",
+            "Uttam Yudh Seva Medal",
+            "Ati Vishisht Seva Medal",
+            "Vishisht Seva Medal",
+            "Yudh Seva Medal",
+            "Sena Medal"
+        ],
+        "quotes": [
+            "The Army is there to give a befitting reply to anyone who casts an evil eye on the country.",
+            "We are ready to face any challenge, whether external or internal."
+        ]
+    }
+]
