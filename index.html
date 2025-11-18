@@ -761,371 +761,11 @@
             <div id="modal-content" class="inline-block align-bottom bg-primary-bg rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full glass border border-accent2/30">
                 <!-- Modal content will be dynamically inserted here -->
             </div>
+            
         </div>
     </div>
 
     <script>
-        // Soldier data with extended details
-        const soldiers = [
-            {
-                id: 1,
-                name: "Capt. Vikram Batra",
-                rank: "Captain",
-                regiment: "13 JAK RIF",
-                tagline: "Param Vir Chakra Awardee",
-                image: "./images/1.jpg",
-                template: "a",
-                fullStory: "Captain Vikram Batra was an officer of the Indian Army, posthumously awarded the Param Vir Chakra, India's highest and most prestigious award for valour, for his actions during the 1999 Kargil War.",
-                backstory: "Born on 9 September 1974 in Palampur, Himachal Pradesh, Vikram Batra was commissioned into the Indian Military Academy in December 1997 and joined the 13th battalion of the Jammu and Kashmir Rifles. He quickly rose through the ranks with his dedication and leadership skills.",
-                operations: [
-                    {
-                        name: "Operation Vijay",
-                        date: "June 1999",
-                        description: "Led his company to capture Point 5140, a strategically important peak in the Dras sector. His famous words 'Yeh Dil Maange More!' became the slogan for the Indian Army's campaign."
-                    },
-                    {
-                        name: "Capture of Point 4875",
-                        date: "July 1999",
-                        description: "Successfully captured Point 4875 but was killed while rescuing an injured officer during the mission. His bravery and leadership inspired his entire unit."
-                    }
-                ],
-                awards: ["Param Vir Chakra", "Operation Vijay Medal"],
-                quotes: [
-                    "Either I will come back after hoisting the Tricolour, or I will come back wrapped in it, but I will be back for sure.",
-                    "Yeh Dil Maange More!"
-                ]
-            },
-            {
-                id: 2,
-                name: "Sub. Yogendra Singh Yadav",
-                rank: "Subedar",
-                regiment: "18 Grenadiers",
-                tagline: "Param Vir Chakra Awardee",
-                image: "./images/2.jpg",
-                template: "a",
-                fullStory: "Subedar Yogendra Singh Yadav is a retired Indian Army soldier, who was awarded the Param Vir Chakra for his bravery during the Kargil War. He is the youngest recipient of the award.",
-                backstory: "Born on 10 May 1980 in Aurangabad, Uttar Pradesh, Yadav joined the Indian Army at a young age. He was part of the 18 Grenadiers battalion during the Kargil War.",
-                operations: [
-                    {
-                        name: "Tiger Hill Assault",
-                        date: "July 1999",
-                        description: "Part of the commando platoon 'Ghatak' tasked to capture three strategic bunkers on Tiger Hill. Despite being severely injured, he continued fighting and neutralized enemy positions."
-                    }
-                ],
-                awards: ["Param Vir Chakra", "Operation Vijay Medal"],
-                quotes: [
-                    "I was just doing my duty. Every soldier in the Indian Army is ready to lay down his life for the nation."
-                ]
-            },
-            {
-                id: 3,
-                name: "Maj. Sandeep Unnikrishnan",
-                rank: "Major",
-                regiment: "7 Bihar",
-                tagline: "Ashoka Chakra Awardee",
-                image: "./images/3.jpg",
-                template: "a",
-                fullStory: "Major Sandeep Unnikrishnan was an Indian Army officer serving in the 7th Battalion of the Bihar Regiment who was martyred in action during the November 2008 Mumbai attacks.",
-                backstory: "Born on 15 March 1977 in Kozhikode, Kerala, Unnikrishnan was a National Defence Academy graduate who joined the Indian Army in 1999. He was part of the National Security Guards (NSG) during the Mumbai attacks.",
-                operations: [
-                    {
-                        name: "Operation Black Tornado",
-                        date: "November 2008",
-                        description: "Led the NSG commando team during the rescue operation at the Taj Mahal Palace Hotel in Mumbai. Sacrificed his life while saving his team members and hotel guests."
-                    }
-                ],
-                awards: ["Ashoka Chakra", "Service Medal"],
-                quotes: [
-                    "Do not come up, I will handle them.",
-                    "The uniform I wear is the Indian Army's. I will not take it off even if I'm killed."
-                ]
-            },
-            {
-                id: 4,
-                name: "Lt. Col. Dhan Singh Thapa",
-                rank: "Lieutenant Colonel",
-                regiment: "1/8 Gorkha Rifles",
-                tagline: "Param Vir Chakra Awardee",
-                image: "./images/4.jpg",
-                template: "b",
-                fullStory: "Lieutenant Colonel Dhan Singh Thapa was an officer in the Indian Army who was awarded the Param Vir Chakra for his bravery during the Sino-Indian War of 1962.",
-                backstory: "Born on 10 April 1928 in Shimla, Thapa was commissioned into the 1st battalion, 8 Gorkha Rifles in 1949. He displayed exceptional leadership during the 1962 war.",
-                operations: [
-                    {
-                        name: "Defense of Sirijap",
-                        date: "October 1962",
-                        description: "Commanded a company at Sirijap post near Pangong Lake. Despite being heavily outnumbered, his unit fought valiantly against Chinese forces for three days."
-                    }
-                ],
-                awards: ["Param Vir Chakra"],
-                quotes: []
-            },
-            {
-                id: 5,
-                name: "Capt. Manoj Kumar Pandey",
-                rank: "Captain",
-                regiment: "1/11 Gorkha Rifles",
-                tagline: "Param Vir Chakra Awardee",
-                image: "./images/5.jpg",
-                template: "b",
-                fullStory: "Captain Manoj Kumar Pandey was an officer of the Indian Army who was posthumously awarded the Param Vir Chakra for his exemplary courage during the Kargil War.",
-                backstory: "Born on 25 June 1975 in Sitapur, Uttar Pradesh, Pandey was commissioned into the 1st battalion, 11 Gorkha Rifles in 1997. He was known for his leadership and bravery.",
-                operations: [
-                    {
-                        name: "Operation Vijay",
-                        date: "July 1999",
-                        description: "Led his platoon in the capture of Khalubar ridge. Despite being severely injured, he continued to motivate his men and destroyed enemy positions before making the ultimate sacrifice."
-                    }
-                ],
-                awards: ["Param Vir Chakra", "Operation Vijay Medal"],
-                quotes: [
-                    "If death strikes before I prove my blood, I swear I'll kill death."
-                ]
-            },
-            {
-                id: 6,
-                name: "Hav. Abdul Hamid",
-                rank: "Havildar",
-                regiment: "4 Grenadiers",
-                tagline: "Param Vir Chakra Awardee",
-                image: "./images/6.jpg",
-                template: "b",
-                fullStory: "Company Quarter Master Havildar Abdul Hamid was a soldier in the Indian Army who was posthumously awarded the Param Vir Chakra for his actions during the Indo-Pakistani War of 1965.",
-                backstory: "Born on 1 July 1933 in Dhamupur village, Uttar Pradesh, Hamid joined the Indian Army in 1954. He served in the 4th battalion of The Grenadiers regiment.",
-                operations: [
-                    {
-                        name: "Battle of Asal Uttar",
-                        date: "September 1965",
-                        description: "Destroyed multiple Pakistani Patton tanks using a recoilless gun despite heavy enemy fire. His brave actions played a crucial role in India's victory in the battle."
-                    }
-                ],
-                awards: ["Param Vir Chakra"],
-                quotes: []
-            },
-            {
-                id: 7,
-                name: "Wg. Cdr. Rakesh Sharma",
-                rank: "Wing Commander",
-                regiment: "Indian Air Force",
-                tagline: "First Indian in Space",
-                image: "./images/7.jpg",
-                template: "a",
-                fullStory: "Wing Commander Rakesh Sharma is a former Indian Air Force pilot who flew aboard the Soyuz T-11, launched on 2 April 1984, as part of the Intercosmos program. He was the first Indian citizen to travel in space.",
-                backstory: "Born on 13 January 1949 in Patiala, Punjab, Sharma joined the Indian Air Force and progressed through the ranks. He was selected to become a cosmonaut and undergo training in the Soviet Union.",
-                operations: [
-                    {
-                        name: "Soyuz T-11 Mission",
-                        date: "April 1984",
-                        description: "Spent 7 days, 21 hours, and 40 minutes in space aboard the Salyut 7 space station. Conducted scientific and technical studies which included 43 experimental sessions."
-                    }
-                ],
-                awards: ["Ashoka Chakra", "Hero of Soviet Union", "Order of Lenin"],
-                quotes: [
-                    "The best view of India is from space – there is no border to be seen.",
-                    "I was proud to be an Indian, and I was proud to be representing India."
-                ]
-            },
-            {
-                id: 8,
-                name: "Gen. Bipin Rawat",
-                rank: "General",
-                regiment: "Indian Army",
-                tagline: "First Chief of Defence Staff",
-                image: "./images/8.jpg",
-                template: "a",
-                fullStory: "General Bipin Rawat was the first Chief of Defence Staff of India. He previously served as the 57th Chairman of the Chiefs of Staff Committee and the 27th Chief of the Army Staff.",
-                backstory: "Born on 16 March 1958 in Pauri, Uttarakhand, Rawat came from a military family with several generations having served in the Indian armed forces. He was commissioned into the 5th battalion of the 11 Gorkha Rifles in December 1978.",
-                operations: [
-                    {
-                        name: "2015 Indian counter-insurgency operation in Myanmar",
-                        date: "June 2015",
-                        description: "Planned and executed cross-border counter-insurgency operations targeting militant camps in Myanmar."
-                    },
-                    {
-                        name: "2016 Indian Line of Control strike",
-                        date: "September 2016",
-                        description: "Oversaw surgical strikes against militant launch pads across the Line of Control in Pakistan-administered Kashmir."
-                    }
-                ],
-                awards: ["Param Vishisht Seva Medal", "Uttam Yudh Seva Medal", "Ati Vishisht Seva Medal", "Vishisht Seva Medal", "Yudh Seva Medal", "Sena Medal"],
-                quotes: [
-                    "The Army is there to give a befitting reply to anyone who casts an evil eye on the country.",
-                    "We are ready to face any challenge, whether external or internal."
-                ]
-            }
-        ];
-
-        // Indian Military Timeline Data
-        const timelineData = [
-            {
-                year: "1746",
-                title: "Formation of British Indian Army",
-                description: "The British East India Company established its own military force, which later evolved into the British Indian Army, laying the foundation for organized armed forces in the subcontinent."
-            },
-            {
-                year: "1746-1763",
-                title: "Carnatic Wars",
-                description: "Series of three Anglo-French wars fought in South India for control over trade routes and territories; significantly shaped European dominance and the future Indian military landscape."
-            },
-            {
-                year: "1757",
-                title: "Battle of Plassey",
-                description: "British forces led by Robert Clive defeated Siraj-ud-Daula, marking the start of British colonial rule and large-scale military operations in India."
-            },
-            {
-                year: "1764",
-                title: "Battle of Buxar",
-                description: "A decisive British victory over combined Mughal and Awadh forces, further solidifying East India Company military control."
-            },
-            {
-                year: "1780-1799",
-                title: "Anglo-Mysore Wars",
-                description: "Series of four wars between the British and the Kingdom of Mysore, culminating in the death of Tipu Sultan and the rise of British military supremacy in southern India."
-            },
-            {
-                year: "1803-1818",
-                title: "Anglo-Maratha Wars",
-                description: "Three military campaigns leading to the defeat of Maratha Confederacy and near-total control of India by the British."
-            },
-            {
-                year: "1824-1826",
-                title: "First Anglo-Burmese War",
-                description: "The British Indian Army fought a major campaign in Burma, expanding colonial military operations into Southeast Asia."
-            },
-            {
-                year: "1857",
-                title: "First War of Independence / Sepoy Mutiny",
-                description: "Mass uprising by Indian soldiers against British rule, resulting in the reorganization of the military and the establishment of the British Crown's direct rule over India."
-            },
-            {
-                year: "1897",
-                title: "Battle of Saragarhi",
-                description: "21 Sikh soldiers held off thousands of Afghan attackers, becoming an enduring symbol of bravery and sacrifice in Indian military history."
-            },
-            {
-                year: "1914-1918",
-                title: "World War I",
-                description: "Over 1 million Indian soldiers served globally under the British, demonstrating international reach and significant wartime sacrifice with 74,000 deaths."
-            },
-            {
-                year: "1939-1945",
-                title: "World War II",
-                description: "Indian Army emerged as the largest volunteer force, 2.5 million strong, fighting in Asia, Africa, and Europe; laid groundwork for post-independence military capability."
-            },
-            {
-                year: "1947",
-                title: "Partition & First Indo-Pakistani War",
-                description: "The Indian military engaged Pakistan over Jammu and Kashmir immediately after independence, shaping boundary outcomes and operational doctrines."
-            },
-            {
-                year: "1948",
-                title: "Operation Polo",
-                description: "Indian military operation to integrate the princely state of Hyderabad into the Union of India, asserting sovereignty and regional control."
-            },
-            {
-                year: "1961",
-                title: "Operation Vijay",
-                description: "Liberation of Goa, Daman, and Diu from Portuguese rule by a coordinated military campaign; marked the end of colonial enclaves."
-            },
-            {
-                year: "1962",
-                title: "Sino-Indian War",
-                description: "Brief but intense conflict with China over disputed Himalayan borders; revealed weaknesses and led to modernization efforts in the Indian military."
-            },
-            {
-                year: "1965",
-                title: "Second Indo-Pakistani War",
-                description: "Armed confrontation with Pakistan across multiple fronts, including claimed victories in Punjab; helped refine the army’s operational logistics."
-            },
-            {
-                year: "1971",
-                title: "Third Indo-Pakistani War / Bangladesh Liberation",
-                description: "Indian military intervention led to creation of Bangladesh after swiftly defeating Pakistani forces on both eastern and western fronts."
-            },
-            {
-                year: "1984",
-                title: "Operation Blue Star",
-                description: "Indian Army carried out a controversial operation to remove militants from the Golden Temple in Amritsar, impacting civil-military relations and national security policy."
-            },
-            {
-                year: "1984",
-                title: "Operation Meghdoot",
-                description: "Indian Army established control over the Siachen Glacier in the world's highest battlefield, fundamentally altering Himalayan defense strategy."
-            },
-            {
-                year: "1987-1990",
-                title: "Operation Pawan",
-                description: "The Indian Peace Keeping Force (IPKF) intervened in Sri Lanka during the civil war, marking India's largest overseas counter-insurgency mission."
-            },
-            {
-                year: "1999",
-                title: "Kargil War / Operation Vijay",
-                description: "Indian Army repelled Pakistani intrusions in Kargil, Jammu & Kashmir, with tactical innovations in high-altitude warfare."
-            },
-            {
-                year: "2001",
-                title: "Operation Parakram",
-                description: "Massive troop mobilization to the India-Pakistan border following the December 2001 Parliament attack, demonstrating readiness for full-scale war."
-            },
-            {
-                year: "2003",
-                title: "Operation Sarp Vinash",
-                description: "Indian Army eliminated large-scale terror infrastructure in Jammu and Kashmir in one of its largest counter-insurgency operations."
-            },
-            {
-                year: "2008",
-                title: "Operation Black Tornado",
-                description: "Rapid National Security Guard and Army counter-terror operation during the Mumbai attacks, reshaping India's approach to urban anti-terror missions."
-            },
-            {
-                year: "2015",
-                title: "Myanmar Cross-Border Operation",
-                description: "Indian Army conducted cross-border strikes in Myanmar, targeting insurgent groups; demonstrated more assertive new doctrine for surgical actions."
-            },
-            {
-                year: "2016",
-                title: "Surgical Strikes",
-                description: "Indian Army carried out precise cross-LoC strikes in Pakistan-administered Kashmir in response to Uri terror attacks, signaling a new assertiveness."
-            },
-            {
-                year: "2019",
-                title: "Balakot Airstrike",
-                description: "Indian Air Force entered Pakistani airspace in retaliation for the Pulwama suicide bombing, marking a historic escalation to cross-border air operations."
-            },
-            {
-                year: "2020",
-                title: "Galwan Valley Clash",
-                description: "India-China military standoff in Ladakh led to casualties for the first time in decades, prompting troop mobilization and a new focus on mountain warfare."
-            },
-            {
-                year: "2021",
-                title: "Operation Devi Shakti",
-                description: "Indian forces evacuated citizens and allied nationals during the Afghanistan crisis, showcasing overseas operational capability."
-            },
-            {
-                year: "2022",
-                title: "Operation Ganga",
-                description: "Indian military and Air Force facilitated mass evacuations from Ukraine following the outbreak of the Russia-Ukraine war."
-            },
-            {
-                year: "2023-2025",
-                title: "Defence Modernization & Reforms",
-                description: "Major reforms included acquisition of Rafale jets, S-400 systems, indigenous missile upgrades (Agni, BrahMos), indigenous Tejas fighter jets, nuclear submarine INS Arihant, network-centric warfare, AI integration for intelligence, rising defense exports, and comprehensive border and cyber defense programs."
-            },
-            {
-                year: "2024-2025",
-                title: "Major Joint Military Exercises",
-                description: "India held large-scale joint exercises with the US (Yudh Abhyas), Russia (Indra), Nepal (Surya Kiran), and others, demonstrating enhanced military interoperability and global partnership."
-            },
-            {
-                year: "2025",
-                title: "Operation Sindoor",
-                description: "Indian Army conducted unprecedented cross-border counter-terror strikes in Pakistan/PoK after the Pahalgam attack. 9 major terror sites destroyed, showcasing technological advances and an evolved doctrine in 21st century warfare."
-            }
-        ];
-
-
-
         // DOM Elements
         const loadingScreen = document.getElementById('loading-screen');
         const particleContainer = document.getElementById('particle-container');
@@ -1137,32 +777,64 @@
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        // Initialize the website
-        document.addEventListener('DOMContentLoaded', function() {
-            // Simulate loading
-            setTimeout(() => {
-                loadingScreen.classList.add('opacity-0');
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 500);
-            }, 2000);
+        // Global variables to store data
+        let soldiers = [];
+        let timelineData = [];
 
-            // Initialize particles
-            createParticles();
-            
-            // Initialize soldier cards
-            renderSoldierCards(soldiers);
-            
-            // Initialize timeline
-            renderTimeline();
-            
-            // Initialize search functionality
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                // Fetch data first
+                await loadData();
+                
+                // Simulate loading (you can remove this if you want real loading)
+                setTimeout(() => {
+                    loadingScreen.classList.add('opacity-0');
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 500);
+                }, 1000);
+
+                // Initialize components
+                createParticles();
+                renderSoldierCards(soldiers);
+                renderTimeline();
+                initEventListeners();
+                initScrollAnimations();
+                
+            } catch (error) {
+                console.error('Error initializing website:', error);
+                // Handle error - maybe show an error message to user
+                loadingScreen.innerHTML = '<p>Error loading data. Please refresh the page.</p>';
+            }
+        });
+
+        // Load data from JSON files
+        async function loadData() {
+            try {
+                // Fetch soldiers data
+                const soldiersResponse = await fetch("https://alphacompany1319.github.io/soldiers.json");
+                if (!soldiersResponse.ok) {
+                    throw new Error(`Soldiers data fetch failed: ${soldiersResponse.status}`);
+                }
+                soldiers = await soldiersResponse.json();
+
+                // Fetch timeline data
+                const timelineResponse = await fetch("https://alphacompany1319.github.io/timeline.json");
+                if (!timelineResponse.ok) {
+                    throw new Error(`Timeline data fetch failed: ${timelineResponse.status}`);
+                }
+                timelineData = await timelineResponse.json();
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                throw error; // Re-throw to handle in calling function
+            }
+        }
+
+        // Initialize event listeners
+        function initEventListeners() {
             searchInput.addEventListener('input', handleSearch);
-            
-            // Initialize scroll animations
-            initScrollAnimations();
-            
-            // Initialize mobile menu
             mobileMenuButton.addEventListener('click', toggleMobileMenu);
             
             // Close mobile menu when clicking on a link
@@ -1170,7 +842,7 @@
             mobileMenuLinks.forEach(link => {
                 link.addEventListener('click', closeMobileMenu);
             });
-        });
+        }
 
         // Toggle mobile menu
         function toggleMobileMenu() {
@@ -1213,6 +885,11 @@
 
         // Render soldier cards
         function renderSoldierCards(soldiersArray) {
+            if (!soldiersArray || soldiersArray.length === 0) {
+                soldiersGrid.innerHTML = '<p class="text-center text-text-color/70">No soldiers data available</p>';
+                return;
+            }
+            
             soldiersGrid.innerHTML = '';
             
             soldiersArray.forEach(soldier => {
@@ -1240,6 +917,11 @@
 
         // Render timeline
         function renderTimeline() {
+            if (!timelineData || timelineData.length === 0) {
+                timelineContainer.innerHTML = '<p class="text-center text-text-color/70">No timeline data available</p>';
+                return;
+            }
+            
             timelineContainer.innerHTML = '';
             
             timelineData.forEach((event, index) => {
@@ -1269,9 +951,9 @@
             
             const filteredSoldiers = soldiers.filter(soldier => {
                 return soldier.name.toLowerCase().includes(searchTerm) ||
-                       soldier.rank.toLowerCase().includes(searchTerm) ||
-                       soldier.regiment.toLowerCase().includes(searchTerm) ||
-                       soldier.tagline.toLowerCase().includes(searchTerm);
+                    soldier.rank.toLowerCase().includes(searchTerm) ||
+                    soldier.regiment.toLowerCase().includes(searchTerm) ||
+                    soldier.tagline.toLowerCase().includes(searchTerm);
             });
             
             renderSoldierCards(filteredSoldiers);
@@ -1318,6 +1000,9 @@
                 modalHTML = renderTemplateA(soldier);
             } else if (soldier.template === 'b') {
                 modalHTML = renderTemplateB(soldier);
+            } else {
+                // Default template if none specified
+                modalHTML = renderTemplateA(soldier);
             }
             
             modalContent.innerHTML = modalHTML;
@@ -1360,9 +1045,9 @@
                                 <p class="text-xl text-accent2 mb-2">${soldier.rank} | ${soldier.regiment}</p>
                                 <p class="text-lg italic mb-4">${soldier.tagline}</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    ${soldier.awards.map(award => `
+                                    ${soldier.awards ? soldier.awards.map(award => `
                                         <span class="px-3 py-1 bg-accent1 text-text-color rounded-full text-sm">${award}</span>
-                                    `).join('')}
+                                    `).join('') : ''}
                                 </div>
                             </div>
                         </div>
@@ -1370,15 +1055,16 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                             <div class="glass rounded-lg p-6">
                                 <h3 class="text-xl font-orbitron font-bold mb-4 text-accent2">Full Story</h3>
-                                <p class="text-text-color/90">${soldier.fullStory}</p>
+                                <p class="text-text-color/90">${soldier.fullStory || 'No story available'}</p>
                             </div>
                             
                             <div class="glass rounded-lg p-6">
                                 <h3 class="text-xl font-orbitron font-bold mb-4 text-accent2">Background</h3>
-                                <p class="text-text-color/90">${soldier.backstory}</p>
+                                <p class="text-text-color/90">${soldier.backstory || 'No background information available'}</p>
                             </div>
                         </div>
                         
+                        ${soldier.operations && soldier.operations.length > 0 ? `
                         <div class="glass rounded-lg p-6 mb-8">
                             <h3 class="text-xl font-orbitron font-bold mb-4 text-accent2">Key Operations</h3>
                             <div class="space-y-4">
@@ -1390,8 +1076,9 @@
                                 `).join('')}
                             </div>
                         </div>
+                        ` : ''}
                         
-                        ${soldier.quotes.length > 0 ? `
+                        ${soldier.quotes && soldier.quotes.length > 0 ? `
                         <div class="glass rounded-lg p-6">
                             <h3 class="text-xl font-orbitron font-bold mb-4 text-accent2">Memorable Quotes</h3>
                             <div class="space-y-3">
@@ -1427,19 +1114,19 @@
                             <p class="text-xl text-accent2 mb-2">${soldier.rank} | ${soldier.regiment}</p>
                             <p class="text-lg italic mb-4">${soldier.tagline}</p>
                             <div class="flex flex-wrap gap-2 justify-center mb-4">
-                                ${soldier.awards.map(award => `
+                                ${soldier.awards ? soldier.awards.map(award => `
                                     <span class="px-3 py-1 bg-accent1 text-text-color rounded-full text-sm">${award}</span>
-                                `).join('')}
+                                `).join('') : ''}
                             </div>
                         </div>
                         
                         <div class="glass rounded-lg p-6 mb-8">
                             <h3 class="text-xl font-orbitron font-bold mb-4 text-accent2">Story of Valor</h3>
-                            <p class="text-text-color/90 mb-4">${soldier.fullStory}</p>
-                            <p class="text-text-color/80">${soldier.backstory}</p>
+                            <p class="text-text-color/90 mb-4">${soldier.fullStory || 'No story available'}</p>
+                            <p class="text-text-color/80">${soldier.backstory || 'No background information available'}</p>
                         </div>
                         
-                        ${soldier.operations.length > 0 ? `
+                        ${soldier.operations && soldier.operations.length > 0 ? `
                         <div class="glass rounded-lg p-6">
                             <h3 class="text-xl font-orbitron font-bold mb-4 text-accent2">Notable Operations</h3>
                             <div class="space-y-3">
