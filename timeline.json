@@ -1,167 +1,172 @@
 [
-    {
-        "year": "1746",
-        "title": "Formation of British Indian Army",
-        "description": "The British East India Company established its own military force, which later evolved into the British Indian Army, laying the foundation for organized armed forces in the subcontinent."
-    },
-    {
-        "year": "1746-1763",
-        "title": "Carnatic Wars",
-        "description": "Series of three Anglo-French wars fought in South India for control over trade routes and territories; significantly shaped European dominance and the future Indian military landscape."
-    },
-    {
-        "year": "1757",
-        "title": "Battle of Plassey",
-        "description": "British forces led by Robert Clive defeated Siraj-ud-Daula, marking the start of British colonial rule and large-scale military operations in India."
-    },
-    {
-        "year": "1764",
-        "title": "Battle of Buxar",
-        "description": "A decisive British victory over combined Mughal and Awadh forces, further solidifying East India Company military control."
-    },
-    {
-        "year": "1780-1799",
-        "title": "Anglo-Mysore Wars",
-        "description": "Series of four wars between the British and the Kingdom of Mysore, culminating in the death of Tipu Sultan and the rise of British military supremacy in southern India."
-    },
-    {
-        "year": "1803-1818",
-        "title": "Anglo-Maratha Wars",
-        "description": "Three military campaigns leading to the defeat of Maratha Confederacy and near-total control of India by the British."
-    },
-    {
-        "year": "1824-1826",
-        "title": "First Anglo-Burmese War",
-        "description": "The British Indian Army fought a major campaign in Burma, expanding colonial military operations into Southeast Asia."
-    },
-    {
-        "year": "1857",
-        "title": "First War of Independence / Sepoy Mutiny",
-        "description": "Mass uprising by Indian soldiers against British rule, resulting in the reorganization of the military and the establishment of the British Crown's direct rule over India."
-    },
-    {
-        "year": "1897",
-        "title": "Battle of Saragarhi",
-        "description": "21 Sikh soldiers held off thousands of Afghan attackers, becoming an enduring symbol of bravery and sacrifice in Indian military history."
-    },
-    {
-        "year": "1914-1918",
-        "title": "World War I",
-        "description": "Over 1 million Indian soldiers served globally under the British, demonstrating international reach and significant wartime sacrifice with 74,000 deaths."
-    },
-    {
-        "year": "1939-1945",
-        "title": "World War II",
-        "description": "Indian Army emerged as the largest volunteer force, 2.5 million strong, fighting in Asia, Africa, and Europe; laid groundwork for post-independence military capability."
-    },
-    {
-        "year": "1947",
-        "title": "Partition & First Indo-Pakistani War",
-        "description": "The Indian military engaged Pakistan over Jammu and Kashmir immediately after independence, shaping boundary outcomes and operational doctrines."
-    },
-    {
-        "year": "1948",
-        "title": "Operation Polo",
-        "description": "Indian military operation to integrate the princely state of Hyderabad into the Union of India, asserting sovereignty and regional control."
-    },
-    {
-        "year": "1961",
-        "title": "Operation Vijay",
-        "description": "Liberation of Goa, Daman, and Diu from Portuguese rule by a coordinated military campaign; marked the end of colonial enclaves."
-    },
-    {
-        "year": "1962",
-        "title": "Sino-Indian War",
-        "description": "Brief but intense conflict with China over disputed Himalayan borders; revealed weaknesses and led to modernization efforts in the Indian military."
-    },
-    {
-        "year": "1965",
-        "title": "Second Indo-Pakistani War",
-        "description": "Armed confrontation with Pakistan across multiple fronts, including claimed victories in Punjab; helped refine the army’s operational logistics."
-    },
-    {
-        "year": "1971",
-        "title": "Third Indo-Pakistani War / Bangladesh Liberation",
-        "description": "Indian military intervention led to creation of Bangladesh after swiftly defeating Pakistani forces on both eastern and western fronts."
-    },
-    {
-        "year": "1984",
-        "title": "Operation Blue Star",
-        "description": "Indian Army carried out a controversial operation to remove militants from the Golden Temple in Amritsar, impacting civil-military relations and national security policy."
-    },
-    {
-        "year": "1984",
-        "title": "Operation Meghdoot",
-        "description": "Indian Army established control over the Siachen Glacier in the world's highest battlefield, fundamentally altering Himalayan defense strategy."
-    },
-    {
-        "year": "1987-1990",
-        "title": "Operation Pawan",
-        "description": "The Indian Peace Keeping Force (IPKF) intervened in Sri Lanka during the civil war, marking India's largest overseas counter-insurgency mission."
-    },
-    {
-        "year": "1999",
-        "title": "Kargil War / Operation Vijay",
-        "description": "Indian Army repelled Pakistani intrusions in Kargil, Jammu & Kashmir, with tactical innovations in high-altitude warfare."
-    },
-    {
-        "year": "2001",
-        "title": "Operation Parakram",
-        "description": "Massive troop mobilization to the India-Pakistan border following the December 2001 Parliament attack, demonstrating readiness for full-scale war."
-    },
-    {
-        "year": "2003",
-        "title": "Operation Sarp Vinash",
-        "description": "Indian Army eliminated large-scale terror infrastructure in Jammu and Kashmir in one of its largest counter-insurgency operations."
-    },
-    {
-        "year": "2008",
-        "title": "Operation Black Tornado",
-        "description": "Rapid National Security Guard and Army counter-terror operation during the Mumbai attacks, reshaping India's approach to urban anti-terror missions."
-    },
-    {
-        "year": "2015",
-        "title": "Myanmar Cross-Border Operation",
-        "description": "Indian Army conducted cross-border strikes in Myanmar, targeting insurgent groups; demonstrated more assertive new doctrine for surgical actions."
-    },
-    {
-        "year": "2016",
-        "title": "Surgical Strikes",
-        "description": "Indian Army carried out precise cross-LoC strikes in Pakistan-administered Kashmir in response to Uri terror attacks, signaling a new assertiveness."
-    },
-    {
-        "year": "2019",
-        "title": "Balakot Airstrike",
-        "description": "Indian Air Force entered Pakistani airspace in retaliation for the Pulwama suicide bombing, marking a historic escalation to cross-border air operations."
-    },
-    {
-        "year": "2020",
-        "title": "Galwan Valley Clash",
-        "description": "India-China military standoff in Ladakh led to casualties for the first time in decades, prompting troop mobilization and a new focus on mountain warfare."
-    },
-    {
-        "year": "2021",
-        "title": "Operation Devi Shakti",
-        "description": "Indian forces evacuated citizens and allied nationals during the Afghanistan crisis, showcasing overseas operational capability."
-    },
-    {
-        "year": "2022",
-        "title": "Operation Ganga",
-        "description": "Indian military and Air Force facilitated mass evacuations from Ukraine following the outbreak of the Russia-Ukraine war."
-    },
-    {
-        "year": "2023-2025",
-        "title": "Defence Modernization & Reforms",
-        "description": "Major reforms included acquisition of Rafale jets, S-400 systems, indigenous missile upgrades (Agni, BrahMos), indigenous Tejas fighter jets, nuclear submarine INS Arihant, network-centric warfare, AI integration for intelligence, rising defense exports, and comprehensive border and cyber defense programs."
-    },
-    {
-        "year": "2024-2025",
-        "title": "Major Joint Military Exercises",
-        "description": "India held large-scale joint exercises with the US (Yudh Abhyas), Russia (Indra), Nepal (Surya Kiran), and others, demonstrating enhanced military interoperability and global partnership."
-    },
-    {
-        "year": "2025",
-        "title": "Operation Sindoor",
-        "description": "Indian Army conducted unprecedented cross-border counter-terror strikes in Pakistan/PoK after the Pahalgam attack. 9 major terror sites destroyed, showcasing technological advances and an evolved doctrine in 21st century warfare."
-    }
+  {
+    "year": "1746",
+    "title": "Formation of British Indian Army",
+    "description": "The British East India Company established its own military force, which later evolved into the British Indian Army, laying the foundation for organized armed forces in the subcontinent."
+  },
+  {
+    "year": "1746-1763",
+    "title": "Carnatic Wars",
+    "description": "Series of three Anglo-French wars fought in South India for control over trade routes and territories; significantly shaped European dominance and the future Indian military landscape."
+  },
+  {
+    "year": "1757",
+    "title": "Battle of Plassey",
+    "description": "British forces led by Robert Clive defeated Siraj-ud-Daula, marking the start of British colonial rule and large-scale military operations in India."
+  },
+  {
+    "year": "1764",
+    "title": "Battle of Buxar",
+    "description": "A decisive British victory over combined Mughal and Awadh forces, further solidifying East India Company military control."
+  },
+  {
+    "year": "1780-1799",
+    "title": "Anglo-Mysore Wars",
+    "description": "Series of four wars between the British and the Kingdom of Mysore, culminating in the death of Tipu Sultan and the rise of British military supremacy in southern India."
+  },
+  {
+    "year": "1803-1818",
+    "title": "Anglo-Maratha Wars",
+    "description": "Three military campaigns leading to the defeat of Maratha Confederacy and near-total control of India by the British."
+  },
+  {
+    "year": "1824-1826",
+    "title": "First Anglo-Burmese War",
+    "description": "The British Indian Army fought a major campaign in Burma, expanding colonial military operations into Southeast Asia."
+  },
+  {
+    "year": "1857",
+    "title": "First War of Independence / Sepoy Mutiny",
+    "description": "Mass uprising by Indian soldiers against British rule, resulting in the reorganization of the military and the establishment of the British Crown's direct rule over India."
+  },
+  {
+    "year": "1897",
+    "title": "Battle of Saragarhi",
+    "description": "21 Sikh soldiers held off thousands of Afghan attackers, becoming an enduring symbol of bravery and sacrifice in Indian military history."
+  },
+  {
+    "year": "1914-1918",
+    "title": "World War I",
+    "description": "Over 1 million Indian soldiers served globally under the British, demonstrating international reach and significant wartime sacrifice with 74,000 deaths."
+  },
+  {
+    "year": "1939-1945",
+    "title": "World War II",
+    "description": "Indian Army emerged as the largest volunteer force, 2.5 million strong, fighting in Asia, Africa, and Europe; laid groundwork for post-independence military capability."
+  },
+  {
+    "year": "1947",
+    "title": "Partition & First Indo-Pakistani War",
+    "description": "The Indian military engaged Pakistan over Jammu and Kashmir immediately after independence, shaping boundary outcomes and operational doctrines."
+  },
+  {
+    "year": "1948",
+    "title": "Operation Polo",
+    "description": "Indian military operation to integrate the princely state of Hyderabad into the Union of India, asserting sovereignty and regional control."
+  },
+  {
+    "year": "1961",
+    "title": "Operation Vijay",
+    "description": "Liberation of Goa, Daman, and Diu from Portuguese rule by a coordinated military campaign; marked the end of colonial enclaves."
+  },
+  {
+    "year": "1962",
+    "title": "Sino-Indian War",
+    "description": "Brief but intense conflict with China over disputed Himalayan borders; revealed weaknesses and led to modernization efforts in the Indian military."
+  },
+  {
+    "year": "1965",
+    "title": "Second Indo-Pakistani War",
+    "description": "Armed confrontation with Pakistan across multiple fronts, including claimed victories in Punjab; helped refine the army\u2019s operational logistics."
+  },
+  {
+    "year": "1971",
+    "title": "Third Indo-Pakistani War / Bangladesh Liberation",
+    "description": "Indian military intervention led to creation of Bangladesh after swiftly defeating Pakistani forces on both eastern and western fronts."
+  },
+  {
+    "year": "1984",
+    "title": "Operation Blue Star",
+    "description": "Indian Army carried out a controversial operation to remove militants from the Golden Temple in Amritsar, impacting civil-military relations and national security policy."
+  },
+  {
+    "year": "1984",
+    "title": "Operation Meghdoot",
+    "description": "Indian Army established control over the Siachen Glacier in the world's highest battlefield, fundamentally altering Himalayan defense strategy."
+  },
+  {
+    "year": "1987-1990",
+    "title": "Operation Pawan",
+    "description": "The Indian Peace Keeping Force (IPKF) intervened in Sri Lanka during the civil war, marking India's largest overseas counter-insurgency mission."
+  },
+  {
+    "year": "1999",
+    "title": "Kargil War / Operation Vijay",
+    "description": "Indian Army repelled Pakistani intrusions in Kargil, Jammu & Kashmir, with tactical innovations in high-altitude warfare."
+  },
+  {
+    "year": "2001",
+    "title": "Operation Parakram",
+    "description": "Massive troop mobilization to the India-Pakistan border following the December 2001 Parliament attack, demonstrating readiness for full-scale war."
+  },
+  {
+    "year": "2003",
+    "title": "Operation Sarp Vinash",
+    "description": "Indian Army eliminated large-scale terror infrastructure in Jammu and Kashmir in one of its largest counter-insurgency operations."
+  },
+  {
+    "year": "2008",
+    "title": "Operation Black Tornado",
+    "description": "Rapid National Security Guard and Army counter-terror operation during the Mumbai attacks, reshaping India's approach to urban anti-terror missions."
+  },
+  {
+    "year": "2015",
+    "title": "Myanmar Cross-Border Operation",
+    "description": "Indian Army conducted cross-border strikes in Myanmar, targeting insurgent groups; demonstrated more assertive new doctrine for surgical actions."
+  },
+  {
+    "year": "2016",
+    "title": "Surgical Strikes",
+    "description": "Indian Army carried out precise cross-LoC strikes in Pakistan-administered Kashmir in response to Uri terror attacks, signaling a new assertiveness."
+  },
+  {
+    "year": "2019",
+    "title": "Balakot Airstrike",
+    "description": "Indian Air Force entered Pakistani airspace in retaliation for the Pulwama suicide bombing, marking a historic escalation to cross-border air operations."
+  },
+  {
+    "year": "2020",
+    "title": "Galwan Valley Clash",
+    "description": "India-China military standoff in Ladakh led to casualties for the first time in decades, prompting troop mobilization and a new focus on mountain warfare."
+  },
+  {
+    "year": "2021",
+    "title": "Operation Devi Shakti",
+    "description": "Indian forces evacuated citizens and allied nationals during the Afghanistan crisis, showcasing overseas operational capability."
+  },
+  {
+    "year": "2022",
+    "title": "Operation Ganga",
+    "description": "Indian military and Air Force facilitated mass evacuations from Ukraine following the outbreak of the Russia-Ukraine war."
+  },
+  {
+    "year": "2023-2025",
+    "title": "Defence Modernization & Reforms",
+    "description": "Major reforms included acquisition of Rafale jets, S-400 systems, indigenous missile upgrades (Agni, BrahMos), indigenous Tejas fighter jets, nuclear submarine INS Arihant, network-centric warfare, AI integration for intelligence, rising defense exports, and comprehensive border and cyber defense programs."
+  },
+  {
+    "year": "2024-2025",
+    "title": "Major Joint Military Exercises",
+    "description": "India held large-scale joint exercises with the US (Yudh Abhyas), Russia (Indra), Nepal (Surya Kiran), and others, demonstrating enhanced military interoperability and global partnership."
+  },
+  {
+    "year": "2025",
+    "title": "Operation Sindoor",
+    "description": "Indian Army conducted unprecedented cross-border counter-terror strikes in Pakistan/PoK after the Pahalgam attack. 9 major terror sites destroyed, showcasing technological advances and an evolved doctrine in 21st century warfare."
+  },
+  {
+    "year": "0000",
+    "title": "0000",
+    "description": "0000"
+  }
 ]
