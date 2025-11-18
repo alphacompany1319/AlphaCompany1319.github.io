@@ -211,31 +211,5 @@
       "The Army is there to give a befitting reply to anyone who casts an evil eye on the country.",
       "We are ready to face any challenge, whether external or internal."
     ]
-  },
-  {
-    "id": 9,
-    "name": "Name",
-    "rank": "Rank",
-    "regiment": "Regiment",
-    "tagline": ".....",
-    "image": "./images/100.jpg",
-    "template": "a",
-    "fullStory": "FULL STORY HERE",
-    "backstory": "FULL BACKSTORY HERE",
-    "operations": [
-      {
-        "name": "Operation1",
-        "date": "DATE",
-        "description": "DESCRIPTION"
-      }
-    ],
-    "awards": [
-      "Award1",
-      "Award2"
-    ],
-    "quotes": [
-      "...",
-      "..."
-    ]
   }
 ]
