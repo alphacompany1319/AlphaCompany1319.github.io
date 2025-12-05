@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://AlphaCompany1319.github.io/sitemap.xml
