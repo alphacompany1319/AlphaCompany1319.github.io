@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
-Sitemap: https://alphacompany1319.github.io/map.xml
+Sitemap: https://alphacompany1319.github.io/sitemap.xml
+
 
